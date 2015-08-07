@@ -40,4 +40,24 @@ angular.module('sandboxApp')
         $scope.clear = function () {
             $scope.order = {myString: null, myInteger: null, myLong: null, myFloat: null, myDouble: null, myDecimal: null, myDate: null, myDateTime: null, myBoolean: null, myEnumeration: null, id: null};
         };
+
+        /* grid */
+        var columnDefs = [
+            {headerName: "Make", field: "make"},
+            {headerName: "Model", field: "model"},
+            {headerName: "Price", field: "price"}
+        ];
+
+        var rowData = [
+            {make: "Toyota", model: "Celica", price: 35000},
+            {make: "Ford", model: "Mondeo", price: 32000},
+            {make: "Porsche", model: "Boxter", price: 72000}
+        ];
+
+        $scope.gridOptions = {
+            columnDefs: columnDefs,
+            rowData: rowData,
+            dontUseScrolls: true // because so little data, no need to use scroll bars
+        };
+
     });
