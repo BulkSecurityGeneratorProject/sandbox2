@@ -32,6 +32,7 @@ angular.module('sandboxApp')
                 });
         };
 
+
         $scope.refresh = function () {
             $scope.loadAll();
             $scope.clear();

@@ -25,7 +25,7 @@ angular.module('sandboxApp', ['LocalStorageModule', 'tmh.dynamicLocale', 'pascal
 
         $rootScope.$on('$stateChangeSuccess',  function(event, toState, toParams, fromState, fromParams) {
             var titleKey = 'global.title' ;
-
+            $rootScope.isActive = true;//add warpper ng-class
             $rootScope.previousStateName = fromState.name;
             $rootScope.previousStateParams = fromParams;
 

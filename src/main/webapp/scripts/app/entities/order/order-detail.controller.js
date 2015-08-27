@@ -8,6 +8,13 @@ angular.module('sandboxApp')
                 $scope.order = result;
             });
         };
+        //add information modal
+        $scope.clickinfo = function(id){
+            Order.get({id:id},function(result){
+                $scope.order = result;
+                $('#information').modal('show');
+            });
+        };
         $rootScope.$on('sandboxApp:orderUpdate', function(event, result) {
             $scope.order = result;
         });

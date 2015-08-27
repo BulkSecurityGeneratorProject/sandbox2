@@ -37,10 +37,29 @@
         </div>
     </div>
 
+
     <div class="table-responsive">
-        <table class="table table-striped">
+        <table class="table table-bordered table-condensed table-striped">
+           <!-- <colgroup>
+                <col style="width: 200%;"/>
+                <col style="width: 200%;"/>
+                <col style="width: 200%;"/>
+                <col style="width: 200%;"/>
+                <col style="width: 200%;"/>
+                <col/>
+                <col/>
+                <col/>
+                <col style="width:200%;"/>
+                <col style="width: 200%;"/>
+                <col/>
+                <col/>
+                <col style="width: 200%;"/>
+                <col/>
+                <col/>
+            </colgroup>-->
             <thead>
-                <tr>
+                <tr class="myrow">
+                    <th>Operate</th>
                     <th translate="global.field.id">ID</th>
                     <th translate="sandboxApp.order.myString">MyString</th>
                     <th translate="sandboxApp.order.myInteger">MyInteger</th>
@@ -52,11 +71,23 @@
                     <th translate="sandboxApp.order.myDateTime">MyDateTime</th>
                     <th translate="sandboxApp.order.myBoolean">MyBoolean</th>
                     <th translate="sandboxApp.order.myEnumeration">MyEnumeration</th>
-                    <th></th>
+
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="order in orders">
+                    <td>
+                        <a href="#" ui-sref="order.detail({id:order.id})" data-placement="right" title="View" >
+                            <span class="glyphicon glyphicon-eye-open"></span>
+                        </a>
+                        <a href="#" ui-sref="order.edit({id:order.id})" data-placement="right" title="Edit">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                        </a>
+                        <a href="#" ng-click="delete(order.id)" data-placement="right" title="Delete">
+                            <span class="glyphicon glyphicon-remove-circle"></span>
+                        </a>
+
+                    </td>
                     <td><a ui-sref="order.detail({id:order.id})">{{order.id}}</a></td>
                     <td>{{order.myString}}</td>
                     <td>{{order.myInteger}}</td>
@@ -68,23 +99,6 @@
                     <td>{{order.myDateTime}}</td>
                     <td>{{order.myBoolean}}</td>
                     <td>{{order.myEnumeration}}</td>
-                    <td>
-                        <button type="submit"
-                                ui-sref="order.detail({id:order.id})"
-                                class="btn btn-info btn-sm">
-                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span translate="entity.action.view"> View</span>
-                        </button>
-                        <button type="submit"
-                                ui-sref="order.edit({id:order.id})"
-                                class="btn btn-primary btn-sm">
-                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span translate="entity.action.edit"> Edit</span>
-                        </button>
-                        <button type="submit"
-                                ng-click="delete(order.id)"
-                                class="btn btn-danger btn-sm">
-                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete"> Delete</span>
-                        </button>
-                    </td>
                 </tr>
             </tbody>
         </table>
@@ -97,6 +111,7 @@
             </ul>
         </nav>
     </div>
+
 
     <!-- grid -->
     <div ag-grid="gridOptions" class="ag-fresh" style="height: 100%;"></div>
